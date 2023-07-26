@@ -470,9 +470,10 @@ abstract class BetterPlayerControlsState<T extends StatefulWidget>
   }
 
   void _showModalBottomSheet(List<Widget> children) {
-    Platform.isAndroid
-        ? _showMaterialBottomSheet(children)
-        : _showCupertinoModalBottomSheet(children);
+    return _showMaterialBottomSheet(children);
+    // Platform.isAndroid
+    //     ? _showMaterialBottomSheet(children)
+    //     : _showCupertinoModalBottomSheet(children);
   }
 
   void _showCupertinoModalBottomSheet(List<Widget> children) {
@@ -508,7 +509,7 @@ abstract class BetterPlayerControlsState<T extends StatefulWidget>
 
   void _showMaterialBottomSheet(List<Widget> children) {
     showModalBottomSheet<void>(
-      backgroundColor: Colors.transparent,
+      backgroundColor: Platform.isAndroid ? Colors.transparent : Colors.black,
       context: context,
       useRootNavigator:
           betterPlayerController?.betterPlayerConfiguration.useRootNavigator ??
