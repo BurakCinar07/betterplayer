@@ -73,7 +73,7 @@ class BetterPlayerPlaylistController {
       return;
     }
     final int nextDataSourceId = _getNextDataSourceIndex();
-    if (nextDataSourceId == -1) {
+    if (nextDataSourceId == -1 || this._currentDataSourceIndex == nextDataSourceId) {
       return;
     }
     if (_betterPlayerController!.isFullScreen) {
